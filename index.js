@@ -15,8 +15,6 @@ if (!src) {
   app.exit(1);
 }
 
-console.log(src);
-
 app.on("ready", () => {
   const { workArea } = screen.getPrimaryDisplay();
   // without this, i seem to have a 2px border top/left
@@ -24,6 +22,7 @@ app.on("ready", () => {
     x: workArea.x - 2,
     y: workArea.y - 2
   };
+
   const win = new BrowserWindow({
     ...workArea,
     ...offset,
@@ -45,7 +44,7 @@ app.on("ready", () => {
   });
 
   win.setIgnoreMouseEvents(true);
-  win.loadFile(`${__dirname}/browser/index.html`);
+  win.loadURL(src);
 
   const img = nativeImage.createFromPath(`${__dirname}/assets/logo.png`);
   const tray = new Tray(img);
