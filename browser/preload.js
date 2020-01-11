@@ -1,9 +1,3 @@
-const { ipcRenderer, webFrame, webContents } = require("electron");
-// const rawConfig = ipcRenderer.sendSync("get-config");
-
-// const code = `window.config = JSON.parse('${rawConfig}')`;
-// webFrame.executeJavaScript(code);
-
 document.addEventListener("DOMContentLoaded", () => {
   let debounce;
   const mut = new MutationObserver(mutations => {
