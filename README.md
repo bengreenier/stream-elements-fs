@@ -23,6 +23,12 @@ Alternatively, you can build it yourself:
 - Run `npm run build` to build the installer
 - Run `npm start -- <yourUrl>` to just run it
 
+## Options
+
+You can append the following as [query string params](https://en.wikipedia.org/wiki/Query_string) to configure options:
+
+- `unsafe-frames=true` - will enable unsafe iframes, allowing camera and microphone access from widgets (iframes) in the overlay.
+
 ## License
 
 MIT

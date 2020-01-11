@@ -15,6 +15,12 @@ if (!src) {
   app.exit(1);
 }
 
+const allowUnsafeIframes = src.includes("?unsafe-frames=true");
+
+if (allowUnsafeIframes) {
+  console.log("Using unsafe frames!");
+}
+
 app.on("ready", () => {
   const { workArea } = screen.getPrimaryDisplay();
   // without this, i seem to have a 2px border top/left
@@ -39,7 +45,7 @@ app.on("ready", () => {
 
   ipcMain.on("get-config", e => {
     e.returnValue = JSON.stringify({
-      src
+      allowUnsafeIframes
     });
   });
 
